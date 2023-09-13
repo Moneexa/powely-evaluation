@@ -54,11 +54,13 @@ function handleSubmit(event: Event) {
                         <div class="uppercase font-bold"> Type of Cost</div>
                         <div class="flex">
                             <button type="button"
+                                :class="formValues.typeOfCost === 'fixed' ? 'bg-green-500 text-white' : ''"
                                 class="uppercase focus:bg-green-500 focus:text-white focus:outline-none rounded-full py-0.5 px-3"
                                 @click="() => {
                                     formValues.typeOfCost = 'fixed'
                                 }">Fixed</button>
                             <button type="button"
+                                :class="formValues.typeOfCost === 'recurrent' ? 'bg-green-500 text-white' : ''"
                                 class="uppercase  focus:bg-green-500 focus:text-white focus:outline-none rounded-full"
                                 @click="() => { formValues.typeOfCost = 'recurrent' }">Recurrent</button>
                         </div>
