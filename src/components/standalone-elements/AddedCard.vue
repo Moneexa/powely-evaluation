@@ -16,7 +16,9 @@ const recurrentRecords = records.map((value) => {
 
 </script>
 <template>
-    <table v-if="fixedRecords.length > 0" class=" w-full border-collapse p-2 md:p-5">
+    <table class=" w-full border-collapse p-2 md:p-5" v-if="myStore.listOfRecords.map((value) => {
+        if (value.typeOfCost === 'fixed') { return value }
+    }).length > 0">
         <thead>
             <tr class="text-left">
                 <th class="h-5 uppercase font-bold">fixed cost (capex)</th>
@@ -37,13 +39,14 @@ const recurrentRecords = records.map((value) => {
                 <td class=" mx-2">{{ item?.cost }}</td>
                 <td class=" mx-2">{{ item?.starting }}</td>
                 <td class=" mx-2">{{ item?.freq }}</td>
-                <td class="mx-2"> <button>Remove</button>
+                <td class="mx-2"> <button class="bg-red-500 text-white">Remove</button>
                 </td>
             </tr>
         </tbody>
     </table>
-    <table v-else></table>
-    <table v-if="recurrentRecords.length > 0" class="w-full border-collapse p-2 md:p-5">
+    <table class="w-full border-collapse p-2 md:p-5" v-if="myStore.listOfRecords.map((value) => {
+        if (value.typeOfCost === 'recurrent') { return value }
+    }).length > 0">
         <thead>
             <tr class="text-left">
                 <th class="h-5 uppercase font-bold">Recurrent cost (capex)</th>
@@ -64,9 +67,8 @@ const recurrentRecords = records.map((value) => {
                 <td class="mx-2">{{ item?.cost }}</td>
                 <td class="mx-2">{{ item?.starting }}</td>
                 <td class="mx-2">{{ item?.freq }}</td>
-                <td class="mx-2"><button>Remove</button></td>
+                <td class="mx-2"><button class="bg-red-500 text-white">Remove</button></td>
             </tr>
         </tbody>
     </table>
-    <table v-else></table>
 </template>
