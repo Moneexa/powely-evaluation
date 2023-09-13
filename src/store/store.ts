@@ -1,22 +1,13 @@
 import { defineStore } from 'pinia';
+import { PayloadType } from "../components/standalone-elements/interface"
 
-interface PayloadType {
-  costName: "";
-  category: "";
-  cost: 0;
-  typeOfCost: "";
-  freq: "";
-  starting: "";
-  description: "";
-
-}
 export const store = defineStore('store', {
   state: () => ({
     listOfRecords:
       [{
         costName: "",
         category: "",
-        cost: 0,
+        cost: "",
         typeOfCost: "",
         freq: "",
         starting: "",
@@ -27,6 +18,7 @@ export const store = defineStore('store', {
   actions: {
     addList(payload: PayloadType) {
       this.listOfRecords.push(payload);
+      console.log(payload)
 
     },
     editIndividualRecord(index: number, payload: PayloadType) {
