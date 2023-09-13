@@ -30,7 +30,7 @@ const recurrentRecords = records.map((value) => {
         <tbody class="w-full">
             <tr v-for="item in myStore.listOfRecords.map((value) => {
                 if (value.typeOfCost === 'fixed') { return value }
-            })" class="w-full bg-white flex flex-col px-3 pt-3 pb-2 my-2">
+            })" class="w-full bg-white flex  px-3 pt-3 pb-2 my-2">
 
                 <td class=" mx-2">{{ item?.costName }}</td>
                 <td class=" mx-2">{{ item?.category }}</td>
@@ -55,7 +55,7 @@ const recurrentRecords = records.map((value) => {
             </tr>
         </thead>
         <tbody class="w-full">
-            <tr class="w-full bg-white flex flex-col px-3 pt-3 pb-2 my-2" v-for="item in myStore.listOfRecords.map((value) => {
+            <tr class="w-full flex bg-white px-3 pt-3 pb-2 my-2" v-for="item in myStore.listOfRecords.map((value) => {
                 if (value.typeOfCost === 'recurrent') { return value }
             })">
 
