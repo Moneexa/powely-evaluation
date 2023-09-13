@@ -15,6 +15,19 @@ export const store = defineStore('store', {
 
       }]
   }),
+  getters: {
+    getFixedRecords: (state) => {
+      return state.listOfRecords.filter((value) => {
+        return value.typeOfCost === "fixed"
+      })
+    },
+    getRecurrentRecords: (state) => {
+      return state.listOfRecords.filter((value) => {
+        return value.typeOfCost === "recurrent"
+      })
+    }
+  },
+
   actions: {
     addList(payload: PayloadType) {
       this.listOfRecords.push(payload);
